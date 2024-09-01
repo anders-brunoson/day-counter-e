@@ -29,11 +29,18 @@ const Counter = () => {
     }).format(date);
   };
 
+  const largeText = {
+    fontSize: '16rem',
+    fontWeight: 'bold',
+    marginBottom: '1rem',
+    color: '#ec4899', // Tailwind's pink-500 color
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Elina's runstreak</h1>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-3xl font-bold mb-2">Elina's runstreak</h1>
       <div className="text-center">
-        <p className="text-9xl font-bold mb-4 text-pink-500">{days}</p>
+        <p style={largeText}>{days}</p>
         <p className="text-2xl font-semibold mb-4">dagar</p>
         <p className="text-1xl font-semibold mb-4">(+1 om dagens runda är klar)</p>
       </div>
