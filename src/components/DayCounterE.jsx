@@ -32,13 +32,14 @@ const Counter = () => {
   const largeText = {
     fontSize: '16rem',
     fontWeight: 'bold',
-    marginBottom: '1rem',
+    marginTop: '-5rem',
+    marginBottom: '-3rem',
     color: '#ec4899', // Tailwind's pink-500 color
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-2">Elina's runstreak</h1>
+    <div className="flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold">Elina's runstreak</h1>
       <div className="text-center">
         <p style={largeText}>{days}</p>
         <p className="text-2xl font-semibold mb-4">dagar</p>
