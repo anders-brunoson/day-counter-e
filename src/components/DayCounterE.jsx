@@ -32,7 +32,7 @@ const Counter = () => {
   const largeText = {
     fontSize: '16rem',
     fontWeight: 'bold',
-    marginTop: '-5rem',
+    marginTop: '-3rem',
     marginBottom: '-3rem',
     color: '#ec4899', // Tailwind's pink-500 color
   };
