@@ -11,7 +11,7 @@ const Counter = () => {
       setCurrentDate(now);
       const timeDifference = now - startDate;
       const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      setDays(Math.max(0, daysDifference + 1)); // Ensuring we don't show negative days
+      setDays(Math.max(0, daysDifference)); // Removed the +1 to exclude today
     };
 
     updateDays(); // Initial update
@@ -35,7 +35,7 @@ const Counter = () => {
       <div className="text-center">
         <p className="text-9xl font-bold mb-4 text-pink-500">{days}</p>
         <p className="text-2xl font-semibold mb-4">dagar</p>
-        <p className="text-1xl font-semibold mb-4">(om dagens runda blir av...)</p>
+        <p className="text-1xl font-semibold mb-4">(+1 om dagens runda är klar)</p>
       </div>
       <p className="text-xl mt-4">Start: {formatDate(startDate)}</p>
       <p className="text-xl mt-2">Idag: {formatDate(currentDate)}</p>
