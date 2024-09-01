@@ -34,7 +34,8 @@ const Counter = () => {
       <h1 className="text-3xl font-bold mb-8">Elina's runstreak</h1>
       <div className="text-center">
         <p className="text-9xl font-bold mb-4 text-pink-500">{days}</p>
-        <p className="text-2xl font-semibold mb-4">dagar (om dagens runda blir av)</p>
+        <p className="text-2xl font-semibold mb-4">dagar</p>
+        <p className="text-1xl font-semibold mb-4">(om dagens runda blir av...)</p>
       </div>
       <p className="text-xl mt-4">Start: {formatDate(startDate)}</p>
       <p className="text-xl mt-2">Idag: {formatDate(currentDate)}</p>
