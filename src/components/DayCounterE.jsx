@@ -39,7 +39,7 @@ const Counter = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold">Elina's runstreak</h1>
+      <h1 className="text-3xl font-bold">Elinas runstreak</h1>
       <div className="text-center">
         <p style={largeText}>{days}</p>
         <p className="text-2xl font-semibold mb-4">dagar</p>
