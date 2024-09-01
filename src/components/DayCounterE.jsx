@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Counter = () => {
   const [days, setDays] = useState(0);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [additionalDay, setAdditionalDay] = useState(0);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const startDate = new Date('2024-08-25');
 
   useEffect(() => {
@@ -11,11 +14,11 @@ const Counter = () => {
       setCurrentDate(now);
       const timeDifference = now - startDate;
       const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      setDays(Math.max(0, daysDifference)); // Removed the +1 to exclude today
+      setDays(Math.max(0, daysDifference));
     };
 
-    updateDays(); // Initial update
-    const timer = setInterval(updateDays, 1000 * 60 * 60); // Update every hour
+    updateDays();
+    const timer = setInterval(updateDays, 1000 * 60 * 60);
 
     return () => clearInterval(timer);
   }, []);
@@ -29,21 +32,42 @@ const Counter = () => {
     }).format(date);
   };
 
+  const handleAddDay = () => {
+    setAdditionalDay(1);
+    setButtonDisabled(true);
+  };
+
   const largeText = {
     fontSize: '16rem',
     fontWeight: 'bold',
     marginTop: '-3rem',
     marginBottom: '-3rem',
-    color: '#ec4899', // Tailwind's pink-500 color
+    color: '#ec4899',
   };
 
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold">Elinas runstreak</h1>
       <div className="text-center">
-        <p style={largeText}>{days}</p>
+        <motion.p
+          style={largeText}
+          key={days + additionalDay}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {days + additionalDay}
+        </motion.p>
         <p className="text-2xl font-semibold mb-4">dagar</p>
-        <p className="text-1xl font-semibold mb-4">(+1 om dagens runda är klar)</p>
+        <button
+          onClick={handleAddDay}
+          className={`bg-pink-500 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out ${
+            buttonDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-pink-600'
+          }`}
+          disabled={buttonDisabled}
+        >
+          {buttonDisabled ? 'Dagens runda räknad' : '+1 om dagens runda är klar'}
+        </button>
       </div>
       <p className="text-xl mt-4">Start: {formatDate(startDate)}</p>
       <p className="text-xl mt-2">Idag: {formatDate(currentDate)}</p>
