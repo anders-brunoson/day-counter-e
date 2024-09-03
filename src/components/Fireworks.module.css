@@ -1,0 +1,40 @@
+.firework {
+     position: absolute;
+     width: 10px;
+     height: 10px;
+   }
+
+   .explosion {
+     position: absolute;
+     left: -2px;
+     bottom: 0;
+     width: 4px;
+     height: 80px;
+     transform-origin: 50% 100%;
+     overflow: hidden;
+   }
+
+   .explosion:nth-child(1) { transform: rotate(0deg) translateY(-15px); }
+   .explosion:nth-child(2) { transform: rotate(45deg) translateY(-15px); }
+   .explosion:nth-child(3) { transform: rotate(90deg) translateY(-15px); }
+   .explosion:nth-child(4) { transform: rotate(135deg) translateY(-15px); }
+   .explosion:nth-child(5) { transform: rotate(180deg) translateY(-15px); }
+   .explosion:nth-child(6) { transform: rotate(225deg) translateY(-15px); }
+   .explosion:nth-child(7) { transform: rotate(270deg) translateY(-15px); }
+   .explosion:nth-child(8) { transform: rotate(315deg) translateY(-15px); }
+
+   .explosion::before {
+     content: '';
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 100%;
+     height: 40px;
+     background-color: #f5a623;
+     animation: explosion 2s ease-in-out infinite;
+   }
+
+   @keyframes explosion {
+     0% { top: 100%; }
+     33%, 100% { top: -50%; }
+   }

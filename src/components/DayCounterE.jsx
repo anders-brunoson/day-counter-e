@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import styles from './Fireworks.module.css';
+
+const Firework = ({ style }) => {
+  return (
+    <div className={styles.firework} style={style}>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+      <div className={styles.explosion}></div>
+    </div>
+  );
+};
 
 const Counter = () => {
   const [days, setDays] = useState(0);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [additionalDay, setAdditionalDay] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [showFireworks, setShowFireworks] = useState(false);
   const startDate = new Date('2024-08-25');
 
   useEffect(() => {
@@ -35,6 +52,8 @@ const Counter = () => {
   const handleAddDay = () => {
     setAdditionalDay(1);
     setButtonDisabled(true);
+    setShowFireworks(true);
+    setTimeout(() => setShowFireworks(false), 3000);
   };
 
   const largeText = {
@@ -46,7 +65,7 @@ const Counter = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center relative">
       <h1 className="text-3xl font-bold">Elinas runstreak</h1>
       <div className="text-center">
         <motion.p
@@ -71,6 +90,14 @@ const Counter = () => {
       </div>
       <p className="text-xl mt-4">Start: {formatDate(startDate)}</p>
       <p className="text-xl mt-2">Idag: {formatDate(currentDate)}</p>
+      {showFireworks && (
+        <>
+          <Firework style={{ top: '20%', left: '20%' }} />
+          <Firework style={{ top: '20%', right: '20%' }} />
+          <Firework style={{ bottom: '20%', left: '20%' }} />
+          <Firework style={{ bottom: '20%', right: '20%' }} />
+        </>
+      )}
     </div>
   );
 };
