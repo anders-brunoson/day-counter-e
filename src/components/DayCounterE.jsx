@@ -66,7 +66,7 @@ const Counter = () => {
 
   return (
     <div className="flex flex-col items-center justify-center relative">
-      <h1 className="text-3xl font-bold">Anders runstreak</h1>
+      <h1 className="text-3xl font-bold">Runstreak</h1>
       <div className="text-center">
         <motion.p
           style={largeText}
