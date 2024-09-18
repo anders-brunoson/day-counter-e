@@ -23,7 +23,7 @@ const Counter = () => {
   const [additionalDay, setAdditionalDay] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [showFireworks, setShowFireworks] = useState(false);
-  const startDate = new Date('2024-08-25');
+  const startDate = new Date('2024-08-24');
 
   useEffect(() => {
     const updateDays = () => {
@@ -66,7 +66,7 @@ const Counter = () => {
 
   return (
     <div className="flex flex-col items-center justify-center relative">
-      <h1 className="text-3xl font-bold">Elinas runstreak</h1>
+      <h1 className="text-3xl font-bold">Anders runstreak</h1>
       <div className="text-center">
         <motion.p
           style={largeText}
