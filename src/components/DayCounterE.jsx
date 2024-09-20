@@ -36,6 +36,10 @@ const Counter = () => {
     }).format(date);
   };
 
+  const formatDateISO = (date) => {
+    return date.toISOString().split('T')[0];
+  };  
+
   const handleAddDay = () => {
     setAdditionalDay(1);
     setButtonDisabled(true);
@@ -54,7 +58,7 @@ const Counter = () => {
   const getMilestoneDate = (days) => {
     const date = new Date(startDate);
     date.setDate(date.getDate() + days -1);
-    return formatDate(date);
+    return formatDateISO(date);
   };
 
   const milestones = [
@@ -73,7 +77,7 @@ const Counter = () => {
     if (!isNaN(daysNumber) && daysNumber > 0) {
       const date = new Date(startDate);
       date.setDate(date.getDate() + daysNumber -1);
-      setCustomDate(formatDate(date));
+      setCustomDate(formatDateISO(date));
     } else {
       setCustomDate('Please enter a valid number of days');
     }
@@ -82,7 +86,7 @@ const Counter = () => {
   return (
     <div className="flex flex-col items-center justify-center relative">
       <h1 className="text-3xl font-bold mb-0">Runstreak</h1>
-      <div className="text-center mt-[-2.5rem]">
+      <div className="text-center mt-[-2rem]">
         <motion.p
           style={largeText}
           key={days + additionalDay}
