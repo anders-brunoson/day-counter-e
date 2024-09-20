@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
-import styles from './Fireworks.module.css';
-
-const Firework = ({ style }) => {
-  return (
-    <div className={styles.firework} style={style}>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-      <div className={styles.explosion}></div>
-    </div>
-  );
-};
 
 const Counter = () => {
   const [days, setDays] = useState(0);
@@ -147,7 +131,7 @@ const Counter = () => {
           </tbody>
         </table>
 
-        <div className="mt-6">
+        <div className="mt-6 mb-6">
           <h3 className="text-xl font-bold mb-2">Calculate Custom Milestone</h3>
           <div className="flex items-center">
             <input
@@ -172,14 +156,6 @@ const Counter = () => {
         </div>
       </div>      
 
-      {showFireworks && (
-        <>
-          <Firework style={{ top: '20%', left: '20%' }} />
-          <Firework style={{ top: '20%', right: '20%' }} />
-          <Firework style={{ bottom: '20%', left: '20%' }} />
-          <Firework style={{ bottom: '20%', right: '20%' }} />
-        </>
-      )}
     </div>
   );
 };
