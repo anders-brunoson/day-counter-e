@@ -123,11 +123,11 @@ const Counter = () => {
           <tbody>
             {milestones.map((milestone) => (
               <tr key={milestone.days}>
-                <td className="border border-gray-300 px-4 py-2">{milestone.date}</td>
-                <td className="border border-gray-300 px-4 py-2">{milestone.days} days</td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">{milestone.date}</td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">{milestone.days} days</td>
                 <td className="border border-gray-300 px-4 py-2 text-center">
                   {days + additionalDay >= milestone.days && (
-                    <CheckCircle2 className="text-green-500 inline" size={24} />
+                    <CheckCircle2 className="text-green-500 inline" size={20} />
                   )}
                 </td>
               </tr>
