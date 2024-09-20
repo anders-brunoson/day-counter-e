@@ -47,7 +47,7 @@ const Counter = () => {
     fontSize: '16rem',
     fontWeight: 'bold',
     marginTop: '-3rem',
-    marginBottom: '-3rem',
+    marginBottom: '-4rem',
     color: '#ec4899',
   };
 
@@ -81,8 +81,8 @@ const Counter = () => {
 
   return (
     <div className="flex flex-col items-center justify-center relative">
-      <h1 className="text-3xl font-bold">Runstreak</h1>
-      <div className="text-center">
+      <h1 className="text-3xl font-bold mb-0">Runstreak</h1>
+      <div className="text-center mt-[-2.5rem]">
         <motion.p
           style={largeText}
           key={days + additionalDay}
