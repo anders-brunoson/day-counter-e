@@ -100,7 +100,7 @@ const Counter = () => {
           }`}
           disabled={buttonDisabled}
         >
-          {buttonDisabled ? 'Today\'s round done' : '+1 if today\s round was done'}
+          {buttonDisabled ? 'Today\'s run done' : '+1 if today\s run was done'}
         </button>
       </div>
       <p className="text-xl mt-4">Streak start: {formatDate(startDate)}</p>
